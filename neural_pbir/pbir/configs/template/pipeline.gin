@@ -1,3 +1,9 @@
+# Copyright (c) Meta Platforms, Inc. and affiliates.
+# All rights reserved.
+#
+# This source code is licensed under the license found in the
+# LICENSE file in the root directory of this source tree.
+
 import datasets
 
 pipeline.dataset_class = @NeuralPBIRDataset
@@ -6,6 +12,6 @@ NeuralPBIRDataset.savemem = True
 NeuralPBIRDataset.F0 = 0.04
 NeuralPBIRDataset.integrator_type = 'path'
 NeuralPBIRDataset.integrator_config = {
-    'max_depth': 3, 
+    'max_depth': 3,
     'hide_emitters': False
 }
