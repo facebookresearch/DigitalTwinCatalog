@@ -11,7 +11,7 @@
  [Shuang Zhao](https://www.shuangz.com/)<sup>3</sup>,
  [Zhao Dong](http://flycooler.com/)<sup>1</sup> <br>
  <sup>1</sup>Meta RLR, <sup>2</sup>National Tsing Hua University, <sup>3</sup>University of California, Irvine, <sup>4</sup>University of Maryland, College Park <br>
-  \*Indicates Equal Contribution  
+  \*Indicates Equal Contribution
 in ICCV 2023 (Poster)
 
 A robust object reconstruction pipeline combining neural based object reconstruction and physics-based inverse rendering (PBIR).
@@ -20,13 +20,18 @@ A robust object reconstruction pipeline combining neural based object reconstruc
 <img width="100%" alt="teaser" src="./assets/teaser.png">
 
 ## Install dependency
-Run the following to create and activate conda environment `neural-pbir`:
+Run the following to create and activate conda environment `neural-pbir` (tested under Ubuntu with CUDA12.4+PyTorch2.4):
 ```bash
-conda env create -v -f environment.yml
+conda create --name neural-pbir python=3.10
 conda activate neural-pbir
-pip install torch==2.4.0 torchvision==0.19.0 torchaudio==2.4.0 --index-url https://download.pytorch.org/whl/cu124   # Install Pytorch (tested with 2.4.0+cu124)
+pip install torch==2.4.0 torchvision==0.19.0 torchaudio==2.4.0 --index-url https://download.pytorch.org/whl/cu124
 pip install -r requirements.txt
 ```
+Note:
+(1) check [this](https://github.com/NVlabs/tiny-cuda-nn/issues/183) if you encounter problem when installing package *tinycudann*
+(2) check [this](https://stackoverflow.com/questions/72540359/glibcxx-3-4-30-not-found-for-librosa-in-conda-virtual-environment-after-tryin) if you encounter problem with importing package *psdr_jit*
+
+
 Since we rely on Blender for uv unwrapping and rerendering, please follow the [installation guide](https://docs.blender.org/manual/en/latest/getting_started/installing/index.html) to install it. Make sure its version >= 2.8 and it is included in `PATH` because we will call it in terminal. On Debian or Ubuntu, you can do
 ```bash
 sudo apt-get install blender -y
