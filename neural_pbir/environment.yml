@@ -1,0 +1,12 @@
+name: neural-pbir
+channels:
+  - pytorch
+  - conda-forge
+  - nvidia
+dependencies:
+  - python=3.10
+  - ninja
+  - gxx>=6, <=12
+  - pip
+  - pip:
+    - -r requirements.txt

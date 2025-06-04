@@ -1,0 +1,57 @@
+import irtk.model
+import irtk.renderer
+import models
+import gin.torch.external_configurables
+
+optimize.num_epochs = 10
+optimize.max_iter = 250
+optimize.checkpoint_iter = 50
+optimize.model_class = @MultiOpt
+optimize.render_opt = @opt/Renderer()
+optimize.render_vis = @vis/Renderer()
+
+MultiOpt.model_classes = [
+    @ShapeLS,
+    @MicrofacetBasis,
+    @EnvmapLS,
+]
+
+ShapeLS.mesh_id = 'mesh'
+ShapeLS.optimizer_kwargs = {
+    'lr': 1e-3,
+    'lmbda': 100,
+}
+
+MicrofacetBasis.mat_id = 'mat'
+MicrofacetBasis.N = 50
+MicrofacetBasis.s_max = 0.04
+MicrofacetBasis.s_min = 0.04
+MicrofacetBasis.r_min = 0.1
+MicrofacetBasis.d_lr = 1e-2
+MicrofacetBasis.r_lr = 5e-3
+MicrofacetBasis.weight_map_lr = 1e-2
+
+EnvmapLS.emitter_id = 'envmap'
+EnvmapLS.optimizer_kwargs = {
+    'lr': 5e-3,
+    'lmbda': 1
+}
+
+connector_name = 'psdr_jit'
+opt/Renderer.connector_name = %connector_name
+opt/Renderer.render_options = {
+    "spp": 64,
+    "sppe": 16,
+    "sppse": 8,
+    "npass": 1,
+    "log_level": 0
+}
+
+vis/Renderer.connector_name = %connector_name
+vis/Renderer.render_options = {
+    "spp": 64,
+    "sppe": 0,
+    "sppse": 0,
+    "npass": 1,
+    "log_level": 0
+}

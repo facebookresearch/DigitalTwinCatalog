@@ -1,0 +1,11 @@
+import datasets
+
+pipeline.dataset_class = @NeuralPBIRDataset
+
+NeuralPBIRDataset.savemem = True
+NeuralPBIRDataset.F0 = 0.04
+NeuralPBIRDataset.integrator_type = 'path'
+NeuralPBIRDataset.integrator_config = {
+    'max_depth': 3, 
+    'hide_emitters': False
+}
