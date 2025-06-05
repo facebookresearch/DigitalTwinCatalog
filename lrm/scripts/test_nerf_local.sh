@@ -5,7 +5,6 @@
 # This source code is licensed under the license found in the
 # LICENSE file in the root directory of this source tree.
 
-epochs=200
 batch_size_per_gpu=8
 num_workers=4
 mvencoder_type="plucker"
@@ -27,13 +26,6 @@ input_image_res=256
 data_path="data"
 eva_input_views="0 1 2 3 4 5 6 7"
 eva_output_views="8 9 10 11"
-# grandteton, H100 80g, minimum 8 gpus
-# zionex_80g, A100 80g
-# zionex, A100
-# https://www.internalfb.com/interr/wiki/rl/rl_production_capacity/rl_efficiency_program/compute/fblearner_and_mast/allocation_efficiency/using_rl_elastic_capacity_for_training/#using-elastic-capacity
-# t16_grandteton
-# zion_4s_80g
-# Then schedule your pipeline as usual, passing the frl_elastic_gpu as the tenant instead of your regular team/pool tenant.
 exp_root="experiments"
 exp_name="test_320k_nerf_res256_sample128"
 
@@ -64,6 +56,8 @@ torchrun test_lrm_triplane.py \
     --input_image_res ${input_image_res} \
     --dataset_type dtc_dataset \
     --use_weight_norm \
+    --eva_input_views ${eva_input_views} \
+    --eva_output_views ${eva_output_views} \
     --loss_weights_file "nerf" \
     --checkpoint "experiments/opensrc_320k_nerf_res256_sample128/checkpoints/last.pth" \
     --save_video \

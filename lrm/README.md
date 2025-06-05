@@ -4,19 +4,19 @@ This is the implementation of [Large Reconstruction Model](https://yiconghong.me
 **Note**: The current release does not include model weights, which we are working on. Please stay tuned.
 
 ## Installation
-We recommend using Anaconda environment. The installation steps are as follows:
-1. Create a new conda environment.
+We recommend running our code on a Linux machine with a full Anaconda environment ([link](https://repo.anaconda.com/archive/Anaconda3-2024.10-1-Linux-x86_64.sh)). Windows WSL is also likely to work when testing locally. The installation steps are as follows:
+1. Create a new conda environment. We tested python 3.12.
    ```
-   conda create -n lrm_dtc
+   conda create -n lrm_dtc python=3.12
    ```
-2. Install [PyTorch](https://pytorch.org/).
+2. Install [PyTorch](https://pytorch.org/). We tested Pytorch 2.7.1 with cuda 12.8. CUDA version higher than 11.8 is likely to work.
 3. Install other dependencies.
    ```
    pip install -r requirements.txt
    ```
 
 ## Local Training and Testing
-We provide a simple example of training and inference scripts to help user testing our code locally. The scripts have been verified on A6000 and H200 GPUs. The training process requires close to 25GB GPU memory.
+We provide a simple example of training and inference scripts to help user testing our code locally. The scripts have been verified on A6000 and H200 GPUs. The training process requires close to 25GB GPU memory. Reducing `batch_size_per_gpu` in training scripts can help reduce the memory usage but will also make training less table.
 
 To test LRM-NeRF
 ```

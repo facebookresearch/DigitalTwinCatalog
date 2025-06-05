@@ -162,7 +162,7 @@ class DtcDataset(Dataset):
             image = np.ascontiguousarray(image)
         return image
 
-    def _load_tar_file(self, img_dir, file_name, im_num=32):
+    def _load_tar_file(self, img_dir, file_name, im_num=32, suffix="png"):
         images, names = [], []
         # surreal data format
         if os.path.exists(os.path.join(img_dir, file_name)):
@@ -189,6 +189,27 @@ class DtcDataset(Dataset):
                         )
                         images.append(image)
                         names.append(member.name)
+        else:
+            for n in range(0, im_num):
+                dir_name = os.path.join(img_dir, os.path.dirname(file_name))
+                type_name = os.path.basename(file_name).split(".")[0]
+                fullname = os.path.join(dir_name, type_name + "%07d" % n + "." + suffix)
+                with open(fullname, "rb") as fIn:
+                    data = fIn.read()
+                if suffix == "png" or suffix == "jpg" or suffix == "png":
+                    image = self.decode_ldr(data)
+                elif suffix == ".exr":
+                    image = self.decode_exr(data)
+                else:
+                    raise ValueError("Unrecognizable name %s." % fullname)
+
+                image = cv2.resize(
+                    image,
+                    (self.input_image_res, self.input_image_res),
+                    interpolation=cv2.INTER_AREA,
+                )
+                images.append(image)
+                names.append(fullname)
 
         return np.stack(images, axis=0), names
 
@@ -348,13 +369,17 @@ class DtcDataset(Dataset):
                 crop_info_out = None
 
         tared_masks, mask_names = self._load_tar_file(
-            os.path.join(model, "images", "rgb"), "mask.tar", im_num=total_image_num
+            os.path.join(model, "images", "rgb"),
+            "mask.tar",
+            im_num=total_image_num,
+            suffix="png",
         )
         if self.sep_gt_dir is not None:
             tared_masks_out, _ = self._load_tar_file(
                 os.path.join(self.sep_gt_dir, model_id, "images", "rgb"),
                 "mask.tar",
                 im_num=total_image_num,
+                suffix="png",
             )
 
         if self.load_depth:
@@ -362,12 +387,14 @@ class DtcDataset(Dataset):
                 os.path.join(model, "images", "rgb"),
                 "depth.tar",
                 im_num=total_image_num,
+                suffix="exr",
             )
             if self.sep_gt_dir is not None:
                 tared_depths_out, _ = self._load_tar_file(
                     os.path.join(self.sep_gt_dir, model_id, "images", "rgb"),
                     "depth.tar",
                     im_num=total_image_num,
+                    suffix="exr",
                 )
 
         if self.load_normal:
@@ -375,12 +402,14 @@ class DtcDataset(Dataset):
                 os.path.join(model, "images", "rgb"),
                 "normal.tar",
                 im_num=total_image_num,
+                suffix="exr",
             )
             if self.sep_gt_dir is not None:
                 tared_normal_out, _ = self._load_tar_file(
                     os.path.join(self.sep_gt_dir, model_id, "images", "rgb"),
                     "normal.tar",
                     im_num=total_image_num,
+                    suffix="exr",
                 )
 
         if self.load_brdf:
@@ -388,22 +417,26 @@ class DtcDataset(Dataset):
                 os.path.join(model, "images", "rgb"),
                 "albedo.tar",
                 im_num=total_image_num,
+                suffix="png",
             )
             tared_specular, specular_names = self._load_tar_file(
                 os.path.join(model, "images", "rgb"),
                 "metallic_roughness.tar",
                 im_num=total_image_num,
+                suffix="png",
             )
             if self.sep_gt_dir is not None:
                 tared_albedo_out, _ = self._load_tar_file(
                     os.path.join(self.sep_gt_dir, model_id, "images", "rgb"),
                     "albedo.tar",
                     im_num=total_image_num,
+                    suffix="png",
                 )
                 tared_specular_out, _ = self._load_tar_file(
                     os.path.join(self.sep_gt_dir, model_id, "images", "rgb"),
                     "metallic_roughness.tar",
                     im_num=total_image_num,
+                    suffix="png",
                 )
 
         if fov is None:

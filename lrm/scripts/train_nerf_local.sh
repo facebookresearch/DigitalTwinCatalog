@@ -32,13 +32,6 @@ num_samples_per_ray=128
 output_res_range="256 256"
 input_image_res=256
 data_path="data"
-# grandteton, H100 80g, minimum 8 gpus
-# zionex_80g, A100 80g
-# zionex, A100
-# https://www.internalfb.com/interr/wiki/rl/rl_production_capacity/rl_efficiency_program/compute/fblearner_and_mast/allocation_efficiency/using_rl_elastic_capacity_for_training/#using-elastic-capacity
-# t16_grandteton
-# zion_4s_80g
-# Then schedule your pipeline as usual, passing the frl_elastic_gpu as the tenant instead of your regular team/pool tenant.
 exp_root="experiments"
 exp_name="opensrc_320k_nerf_res256_sample128"
 
