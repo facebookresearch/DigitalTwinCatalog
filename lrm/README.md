@@ -1,5 +1,6 @@
 # Large Reconstruction Models Implementation from Surreal DTC
 <img width="100%" alt="teaser" src="assets/teaser.png">
+
 This is the implementation of [Large Reconstruction Model](https://yiconghong.me/LRM/) (LRM) from Surreal DTC for feed-forward sparse-view reconstruction. We provide 2 variations of LRM, LRM-NeRF and LRM-VolSDF, which reconstruct 3D objects in the form of neural radiance fields and sign distance fields respectively. Please refer to our [CVPR paper](https://arxiv.org/abs/2504.08541) and [website](https://www.projectaria.com/datasets/dtc/) for more implementation details and example reconstruction results.
 
 **Note**: The current release does not include model weights, which we are working on. Please stay tuned.
