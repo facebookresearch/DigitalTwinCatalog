@@ -122,6 +122,7 @@ python scripts/relit/relit.py $RELIT_GEO $RELIT_ALBEDO $RELIT_ROUGH $RELIT_CAM \
 All results will be saved into a `blender_relit/`, which is under the same folder as the albedo `$RELIT_ALBEDO` (for above example, it is `results/charuco/dinosaur/pbir/blender_relit/`). The results are:
 - `im_{xxxx}_[roughness|albedo]0029.exr`. The `xxxx` is the index to the given camera poses. It only render the test split by default.
 - `im_{xxxx}_{lgt_name}.png`. You can provide some glob paths to the environment lighting to render the religting views. Some envmaps can be downloaded from [blender github](https://github.com/blender/blender/tree/main/release/datafiles/studiolights/world) and [MII github](https://github.com/zju3dv/InvRender/tree/main/code/envmaps).
+- Relighting scripts are tested with Blender 3.6.0.
 
 ## Citation
 ```

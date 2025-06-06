@@ -17,6 +17,6 @@ PyMCubes
 gpytoolbox
 open3d
 ./neural_surface_recon/lib/cuda/
-psdr-jit
-irtk
+psdr-jit==0.2.1
+irtk==0.1.8
 largesteps

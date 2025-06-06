@@ -60,7 +60,7 @@ To generate the meta json file, run:
 ```
 python scripts/preprocess/mii.py data/Synthetic4Relight/air_baloons/
 ```
-It will produce a `data/Synthetic4Relight/air_baloons/cameras.json`. After processing all the 4 scenes, you can now run `./scripts/mii/mii.sh`.
+It will produce a `data/Synthetic4Relight/air_baloons/cameras.json`. After processing all the 4 scenes, you can now run `./scripts/mii/mii.sh` on Linux or the `.\scripts\mii\mii.bat` on Windows.
 
 
 ## Pre-process DTU dataset
@@ -84,4 +84,4 @@ To generate the meta json file, run:
 ```
 python scripts/preprocess/dtu.py data/DTU/dtu_scan24/
 ```
-It will produce a `data/DTU/dtu_scan24/cameras.json`. After processing all the 15 scenes, you can now run `./scripts/dtu/run_all.sh`.
+It will produce a `data/DTU/dtu_scan24/cameras.json`. After processing all the 15 scenes, you can now run `./scripts/dtu/run_all.sh` on Linux. For Windows, you can convert the bash script to a batch script and run it.

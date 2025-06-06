@@ -6,8 +6,8 @@
 
 import argparse
 import glob
-import os
 import subprocess
+from pathlib import Path
 
 parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 parser.add_argument("mesh_path", help="path to mesh")
@@ -33,34 +33,45 @@ parser.add_argument("--F0", default=0.04, type=float)
 parser.add_argument("--render_exr", action="store_true")
 args = parser.parse_args()
 
-cur_dir = os.path.dirname(os.path.abspath(__file__))
+cur_dir = Path(__file__).resolve().parent
 
-lgt_paths = []
+# Expand lgt_paths using glob and pathlib, and join with comma
+lgt_path_list = []
 for path in args.lgt_paths:
-    lgt_paths.extend(glob.glob(path))
-lgt_paths = ",".join(sorted(lgt_paths))
+    lgt_path_list.extend(glob.glob(str(path)))
+lgt_path_list = sorted([str(Path(p).resolve()) for p in lgt_path_list])
+lgt_paths_str = ",".join(lgt_path_list)
 
-assert os.path.isfile(args.mesh_path), f"{args.mesh_path} not found !!"
-assert os.path.isfile(args.albedo_path), f"{args.albedo_path} not found !!"
-assert os.path.isfile(args.rough_path), f"{args.rough_path} not found !!"
-assert os.path.isfile(args.camera_path), f"{args.camera_path} not found !!"
-assert os.path.isfile(lgt_paths), f"{lgt_paths} not found !!"
+# Use pathlib for all file checks and paths
+mesh_path = Path(args.mesh_path).resolve()
+albedo_path = Path(args.albedo_path).resolve()
+rough_path = Path(args.rough_path).resolve()
+camera_path = Path(args.camera_path).resolve()
+
+assert mesh_path.is_file(), f"{mesh_path} not found !!"
+assert albedo_path.is_file(), f"{albedo_path} not found !!"
+assert rough_path.is_file(), f"{rough_path} not found !!"
+assert camera_path.is_file(), f"{camera_path} not found !!"
+if lgt_paths_str:
+    # Only check if not empty
+    for lgt_path in lgt_paths_str.split(","):
+        assert Path(lgt_path).is_file(), f"{lgt_path} not found !!"
 
 subprocess.run(
     [
         "blender",
-        os.path.join(cur_dir, "relit.blend"),
+        str(cur_dir / "relit.blend"),
         "--background",
         "--python",
-        os.path.join(cur_dir, "blender_script.py"),
+        str(cur_dir / "blender_script.py"),
         "--",
         "1" if args.debug else "0",
         "0" if args.no_gpu else "1",
-        args.mesh_path,
-        args.albedo_path,
-        args.rough_path,
-        lgt_paths,
-        args.camera_path,
+        str(mesh_path),
+        str(albedo_path),
+        str(rough_path),
+        lgt_paths_str,
+        str(camera_path),
         args.split,
         args.filter_type,
         str(args.filter_width),
