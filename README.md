@@ -3,6 +3,11 @@
 
 Digital Twin Catalog (DTC) is a new large-scale photorealistic 3D object digital twin dataset. It features 2,000 scanned digital twin-quality 3D objects, along with image sequences captured under different lighting conditions using DSLR cameras and egocentric AR glasses. This dataset establishes the first comprehensive real-world evaluation benchmark for 3D digital twin creation tasks, offering a robust foundation for comparing and improving existing reconstruction methods. This repository includes 3D reconstrution tools and baselines used in the dataset creation and evaluation process, including egocentric 3D Gaussian reconstruction, feed-forward sparse view reconstruction and optimization-based neural inverse rendering.
 
+## Egocentric 3D Gaussian Reconstruction
+
+## Feed-forward Sparse View Reconstruction
+
+## Optimization-based Neural Inverse Rendering
 
 ## License
 DTC dataset and code are released by Meta under the Creative Commons Attribution-NonCommercial 4.0 International License ([CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/deed.en)). Data and code may not be used for commercial purposes. For more information, please refer to the LICENSE file included in each repository.
