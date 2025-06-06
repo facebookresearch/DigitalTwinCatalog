@@ -1,5 +1,22 @@
-# Digital Twin Catalog (DTC) Dataset and 3D Reconstruction Baseline Methods
-[[Project Page]](https://www.projectaria.com/datasets/dtc/) [[Data Explorer]](https://dtc.projectaria.com/) [[Paper]](https://arxiv.org/abs/2504.08541) [[Bibtex]](https://github.com/facebookresearch/DigitalTwinCatalog/blob/add_readme/README.md#attribution)
+<div align="center">
+
+<h2> Digital Twin Catalog (DTC) Dataset and 3D Reconstruction Baseline Methods </h2>
+
+<a href="https://arxiv.org/abs/2504.08541"><img src="https://img.shields.io/badge/arxiv-red" alt="arXiv"></a>
+<a href="https://www.projectaria.com/datasets/dtc/">
+  <img src="https://img.shields.io/badge/Digital_Twin_Catalog-project%20page-blue
+  " alt="Project Page">
+</a>
+<a href="https://dtc.projectaria.com/"><img src="https://img.shields.io/badge/Digital_Twin_Catalog-Dataset%20Explorer-purple
+" alt="Data Explorer"></a>
+
+[Digital Twin Catalog Team](#attribution)
+
+Reality Labs Research Meta, Stanford
+
+CVPR 2025
+
+</div>
 
 Digital Twin Catalog (DTC) is a new large-scale photorealistic 3D object digital twin dataset. It features 2,000 scanned digital twin-quality 3D objects, along with image sequences captured under different lighting conditions using DSLR cameras and egocentric AR glasses. This dataset establishes the first comprehensive real-world evaluation benchmark for 3D digital twin creation tasks, offering a robust foundation for comparing and improving existing reconstruction methods. This repository includes 3D reconstrution tools and baselines used in the dataset creation and evaluation process, including egocentric 3D Gaussian reconstruction, feed-forward sparse view reconstruction and optimization-based neural inverse rendering.
 
