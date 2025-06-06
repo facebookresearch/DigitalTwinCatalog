@@ -10,7 +10,7 @@ We implemented [Large Reconstruction Model](https://yiconghong.me/LRM/) (LRM) as
 
 <img width="100%" alt="teaser" src="lrm/assets/teaser.png">
 
-If you use our implementation, please also cite this following work from which this implementation is created as a baseline.
+If you use our implementation, please also attribute this following work from which this implementation is created as a baseline.
 ```
 @inproceedings{li2025lirm,
 title={LIRM: Large Inverse Rendering Model for Progressive Reconstruction of Shape, Materials and View-dependent Radiance Fields},
