@@ -27,7 +27,7 @@ def pipeline(configroot, ckptroot, dataset_class):
     stages = [
         "microfacet_naive-envmap_sg",
         "microfacet_basis-envmap_ls",
-        "microfacet_basis-envmap_ls-shape_ls",
+        # "microfacet_basis-envmap_ls-shape_ls",
     ]
 
     result_root = Path(dataset.result_root)

@@ -1,3 +1,4 @@
+#!/bin/bash
 # Copyright (c) Meta Platforms, Inc. and affiliates.
 # All rights reserved.
 #

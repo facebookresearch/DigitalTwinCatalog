@@ -6,11 +6,14 @@
 
 from irtk.model import Model
 from irtk.io import *
-from irtk.config import *
 from pathlib import Path
 
 import gin
 import torch
+from irtk.config import configs
+
+ftype = configs["ftype"]
+device = configs["device"]
 
 from .utils_largestep import connect_strip, LargeStepsOptimizer
 

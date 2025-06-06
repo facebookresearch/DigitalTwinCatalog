@@ -6,7 +6,10 @@
 
 from irtk.model import Model
 from irtk.io import *
-from irtk.config import *
+from irtk.config import configs
+
+ftype = configs["ftype"]
+device = configs["device"]
 from pathlib import Path
 
 import gin

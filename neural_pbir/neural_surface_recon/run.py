@@ -625,7 +625,8 @@ def train(args, cfg, data_dict):
         for arg in sorted(vars(args)):
             attr = getattr(args, arg)
             file.write("{} = {}\n".format(arg, attr))
-    cfg.results_dir = str(cfg.results_dir)
+    cfg.results_dir = str(cfg.results_dir).replace("\\", "/")
+    cfg.data.datadir = cfg.data.datadir.replace("\\", "/")
     cfg.dump(os.path.join(cfg.results_dir, "config.py"))
     cfg.results_dir = Path(cfg.results_dir)
 

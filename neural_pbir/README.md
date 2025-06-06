@@ -20,7 +20,7 @@ A robust object reconstruction pipeline combining neural based object reconstruc
 <img width="100%" alt="teaser" src="./assets/teaser.png">
 
 ## Install dependency
-Run the following to create and activate conda environment `neural-pbir` (tested under Ubuntu with CUDA12.4+PyTorch2.4):
+Run the following to create and activate conda environment `neural-pbir` (tested under Ubuntu&Windows with CUDA12.4+PyTorch2.4):
 ```bash
 conda create --name neural-pbir python=3.10
 conda activate neural-pbir
