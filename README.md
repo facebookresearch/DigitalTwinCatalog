@@ -1,7 +1,9 @@
 # Digital Twin Catalog (DTC) Dataset and 3D Reconstruction Baseline Methods
+[Project Page]() [Data Explorer]() [Paper]() [Bibtex]()
+
 
 ## License
-DTC dataset and code are released by Meta under the Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0). Data and code may not be used for commercial purposes. For more information, please refer to the LICENSE file included in each repository.
+DTC dataset and code are released by Meta under the Creative Commons Attribution-NonCommercial 4.0 International License ([CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/deed.en)). Data and code may not be used for commercial purposes. For more information, please refer to the LICENSE file included in each repository.
 
 ## Attribution
 When using the dataset, please attribute it as follows:
