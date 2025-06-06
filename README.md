@@ -1,5 +1,5 @@
 # Digital Twin Catalog (DTC) Dataset and 3D Reconstruction Baseline Methods
-[[Project Page]](https://www.projectaria.com/datasets/dtc/) [[Data Explorer]](https://dtc.projectaria.com/) [[Paper]](https://arxiv.org/abs/2504.08541) [Bibtex]()
+[[Project Page]](https://www.projectaria.com/datasets/dtc/) [[Data Explorer]](https://dtc.projectaria.com/) [[Paper]](https://arxiv.org/abs/2504.08541) [[Bibtex]](https://github.com/facebookresearch/DigitalTwinCatalog/blob/add_readme/README.md#attribution)
 
 
 ## License
