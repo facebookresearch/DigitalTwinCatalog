@@ -7,7 +7,28 @@ Digital Twin Catalog (DTC) is a new large-scale photorealistic 3D object digital
 
 ## Feed-forward Sparse View Reconstruction
 
-## Optimization-based Neural Inverse Rendering
+## Optimization-based Neural Inverse Rendering (neural_pbir)
+Neural-PBIR combines neural-based object reconstruction and physics-based inverse rendering (PBIR). Specifically, the pipeline firstly leverages a neural stage to produce high-quality but potentially imperfect predictions of object shape, reflectance, and illumination. Then, in the later stage, initialized by the neural predictions, PBIR is performed to refine the initial results and obtain the final high-quality reconstruction.
+
+<img width="100%" alt="teaser" src="neural_pbir/assets/teaser.png">
+
+This is the source code for our ICCV 2023 submission: *Neural-PBIR Reconstruction of Shape, Material, and Illumination* [[Project Page]](https://neural-pbir.github.io/). When using the tool, please attribute it as follows:
+```
+@inproceedings{neuralpbir2023,
+  author       = {Cheng Sun and
+                  Guangyan Cai and
+                  Zhengqin Li and
+                  Kai Yan and
+                  Cheng Zhang and
+                  Carl Marshall and
+                  Jia{-}Bin Huang and
+                  Shuang Zhao and
+                  Zhao Dong},
+  title        = {Neural-PBIR Reconstruction of Shape, Material, and Illumination},
+  booktitle    = {{ICCV} 2023},
+  year         = {2023},
+}
+```
 
 ## License
 DTC dataset and code are released by Meta under the Creative Commons Attribution-NonCommercial 4.0 International License ([CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/deed.en)). Data and code may not be used for commercial purposes. For more information, please refer to the LICENSE file included in each repository.
