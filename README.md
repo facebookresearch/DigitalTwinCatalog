@@ -6,6 +6,7 @@ Digital Twin Catalog (DTC) is a new large-scale photorealistic 3D object digital
 ## Egocentric 3D Gaussian Reconstruction
 
 ## Feed-forward Sparse View Reconstruction
+<img width="100%" alt="teaser" src="lrm/assets/teaser.png">
 
 ## Optimization-based Neural Inverse Rendering (neural_pbir)
 Neural-PBIR combines neural-based object reconstruction and physics-based inverse rendering (PBIR). Specifically, the pipeline firstly leverages a neural stage to produce high-quality but potentially imperfect predictions of object shape, reflectance, and illumination. Then, in the later stage, initialized by the neural predictions, PBIR is performed to refine the initial results and obtain the final high-quality reconstruction.
