@@ -17,5 +17,5 @@ When using the dataset, please attribute it as follows:
 When using our code, please refer to each directory and attribute it accordingly.
 
 # Contribute
-We welcome contributions! Go to [CONTRIBUTING](https://github.com/facebookresearch/nymeria_dataset/blob/main/.github/CONTRIBUTING.md) and our [CODE OF CONDUCT](https://github.com/facebookresearch/nymeria_dataset/blob/main/.github/CODE_OF_CONDUCT.md) for how to contribute.
+We welcome contributions! Go to [CONTRIBUTING](https://github.com/facebookresearch/DigitalTwinCatalog/blob/add_readme/.github/CODE_OF_CONDUCT.md) and our [CODE OF CONDUCT](https://github.com/facebookresearch/nymeria_dataset/blob/main/.github/CODE_OF_CONDUCT.md) for how to contribute.
 
