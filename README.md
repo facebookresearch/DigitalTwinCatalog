@@ -21,7 +21,7 @@ CVPR 2025
 
 Digital Twin Catalog (DTC) is a new large-scale photorealistic 3D object digital twin dataset. It features 2,000 scanned digital twin-quality 3D objects, along with image sequences captured under different lighting conditions using DSLR cameras and egocentric AR glasses. This dataset establishes the first comprehensive real-world evaluation benchmark for 3D digital twin creation tasks, offering a robust foundation for comparing and improving existing reconstruction methods. This repository includes 3D reconstrution tools and baselines used in the dataset creation and evaluation process, including egocentric 3D Gaussian reconstruction, feed-forward sparse view reconstruction and optimization-based neural inverse rendering.
 
-## Feed-forward Sparse View Reconstruction
+## Feed-forward Sparse View Reconstruction (lrm)
 We implemented [Large Reconstruction Model](https://yiconghong.me/LRM/) (LRM) as one of our baselines for feedforward sparse-view reconstruction. Our implementation resembles [MeshLRM](https://sarahweiii.github.io/meshlrm/). We provide 2 variations of LRM, LRM-NeRF and LRM-VolSDF, which reconstruct 3D objects in the form of neural radiance fields and sign distance fields respectively.
 
 <img width="100%" alt="teaser" src="lrm/assets/teaser.png">
@@ -59,7 +59,7 @@ This is the source code for our ICCV 2023 submission: *Neural-PBIR Reconstructio
 }
 ```
 
-## Egocentric Reconstruction using Gaussian Splatting
+## Egocentric Reconstruction using Gaussian Splatting (egocentric_splats)
 
 For all the egocentric reconstructions in the DTC dataset, we use the 3D Gaussian Splatting and 2D Guassian Splatting as the scene representation implemented in the work "Photoreal Scene Rconstruction from an Egocentric Device", which you can find in the "egocentric_splats" by
 
