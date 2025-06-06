@@ -1,0 +1,3 @@
+[submodule "egocentric_splats"]
+	path = egocentric_splats
+	url = https://github.com/facebookresearch/egocentric_splats.git

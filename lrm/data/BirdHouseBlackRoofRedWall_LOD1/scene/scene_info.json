@@ -1,0 +1,18 @@
+{
+    "model_file": "manifold://dtc_dataset/tree/root/object_models/Birdhouses/BirdHouseBlackRoofRedWall_LOD1.glb",
+    "object": "Birdhouses/BirdHouseBlackRoofRedWall_LOD1",
+    "object_location": [
+        0,
+        0,
+        0
+    ],
+    "object_scale": 1,
+    "object_center": [
+        0,
+        0,
+        0
+    ],
+    "hdr_map": "manifold://dtc_dataset/tree/dataset/hdr_maps/custom/white_dome.exr",
+    "fov": 74.10952960675337,
+    "num_poses": 32
+}

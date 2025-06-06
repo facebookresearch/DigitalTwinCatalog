@@ -1,0 +1,19 @@
+mse:
+  rgb: 1.0
+  albedo: 0.0
+  roughness: 0.0
+  metallic: 0.0
+  normal: 0.0
+  numerical_normal: 1.0
+  mask: 1.0
+  depth: 0.0
+
+perceptual:
+  rgb: 2.0
+  albedo: 0.0
+  roughness: 0.0
+  metallic: 0.0
+  normal: 0.0
+  numerical_normal: 0.0
+  mask: 0.0
+  depth: 0.0

@@ -1,0 +1,12 @@
+PyYAML
+opencv-python
+ffmpeg-python
+ninja
+nerfacc
+matplotlib
+trimesh
+scikit-image
+lpips
+OpenEXR
+scipy
+tensorboard
