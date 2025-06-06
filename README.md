@@ -1,9 +1,9 @@
-## Digital Twin Catalog (DTC) Dataset and 3D Reconstruction Baseline Methods
+# Digital Twin Catalog (DTC) Dataset and 3D Reconstruction Baseline Methods
 
-# License
+## License
 DTC dataset and code are released by Meta under the Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0). Data and code may not be used for commercial purposes. For more information, please refer to the LICENSE file included in each repository.
 
-# Attribution
+## Attribution
 When using the dataset, please attribute it as follows:
 ```
 @InProceedings{Dong_2025_CVPR,
@@ -16,6 +16,6 @@ When using the dataset, please attribute it as follows:
 ```
 When using our code, please refer to each directory and attribute it accordingly.
 
-# Contribute
+## Contribute
 We welcome contributions! Go to [CONTRIBUTING](https://github.com/facebookresearch/DigitalTwinCatalog/blob/add_readme/.github/CODE_OF_CONDUCT.md) and our [CODE OF CONDUCT](https://github.com/facebookresearch/DigitalTwinCatalog/blob/main/.github/CONTRIBUTING.md) for how to contribute.
 
