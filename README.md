@@ -6,7 +6,20 @@ Digital Twin Catalog (DTC) is a new large-scale photorealistic 3D object digital
 ## Egocentric 3D Gaussian Reconstruction
 
 ## Feed-forward Sparse View Reconstruction
+We implemented [Large Reconstruction Model](https://yiconghong.me/LRM/) (LRM) as one of our baselines for feedforward sparse-view reconstruction. Our implementation resembles [MeshLRM](https://sarahweiii.github.io/meshlrm/). We provide 2 variations of LRM, LRM-NeRF and LRM-VolSDF, which reconstruct 3D objects in the form of neural radiance fields and sign distance fields respectively.
+
 <img width="100%" alt="teaser" src="lrm/assets/teaser.png">
+
+If you use our implementation, please also cite this following work from which this implementation is created as a baseline.
+```
+@inproceedings{li2025lirm,
+title={LIRM: Large Inverse Rendering Model for Progressive Reconstruction of Shape, Materials and View-dependent Radiance Fields},
+author={Zhengqin Li and Dilin Wang and Ka Chen and Zhaoyang Lv and Thu Nguyen-Phuoc and Milim Lee and Jia-bin Huang
+  and Lei Xiao and Cheng Zhang and Yufeng Zhu and Carl S. Marshall and Yufeng Ren and Richard Newcombe and Zhao Dong},
+journal={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+year={2025},
+}
+```
 
 ## Optimization-based Neural Inverse Rendering (neural_pbir)
 Neural-PBIR combines neural-based object reconstruction and physics-based inverse rendering (PBIR). Specifically, the pipeline firstly leverages a neural stage to produce high-quality but potentially imperfect predictions of object shape, reflectance, and illumination. Then, in the later stage, initialized by the neural predictions, PBIR is performed to refine the initial results and obtain the final high-quality reconstruction.
