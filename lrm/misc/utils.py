@@ -32,7 +32,7 @@ from skimage import measure
 
 # from ..data_loader.utils import compute_rays
 
-from .dist_helper import get_rank, get_world_size, is_dist_avail_and_initialized
+from .dist_helper import get_rank, is_dist_avail_and_initialized
 
 print_debug_info = False
 
