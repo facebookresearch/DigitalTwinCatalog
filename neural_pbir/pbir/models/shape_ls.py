@@ -4,9 +4,9 @@
 # This source code is licensed under the license found in the
 # LICENSE file in the root directory of this source tree.
 
-from irtk.model import Model
-from irtk.io import *
 from irtk.config import configs
+from irtk.io import read_mesh, write_mesh
+from irtk.model import Model
 
 ftype = configs["ftype"]
 device = configs["device"]
