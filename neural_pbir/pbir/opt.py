@@ -48,7 +48,7 @@ def optimize(
     print("Starting the optimization...")
     pbar = tqdm(total=max_iter)
 
-    for epoch in range(1, num_epochs + 1):
+    for _ in range(1, num_epochs + 1):
         # Randomly shuffle sensors
         sensor_perm = opt_sensor_ids[torch.randperm(num_sensors)]
 
