@@ -9,11 +9,8 @@ Extend Adam optimizer to support sparse update to speedup training.
 Note that the SparseAdam in pytorch is not work the same way as this.
 """
 
-import os
-
 import neural_pbir_cuda_utils
 import torch
-from torch.utils.cpp_extension import load
 
 
 class MaskedAdam(torch.optim.Optimizer):

@@ -4,19 +4,17 @@
 # This source code is licensed under the license found in the
 # LICENSE file in the root directory of this source tree.
 
-import glob
 import json
 import os
 import time
 from multiprocessing import Pool
 
 import imageio
-import imageio.v3 as iio
 import numpy as np
 
 import scipy
 from scipy.spatial.transform import Rotation, Slerp
-from tqdm import tqdm, trange
+from tqdm import tqdm
 
 
 def load_data(cfg_data):

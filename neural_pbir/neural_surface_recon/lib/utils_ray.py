@@ -4,18 +4,14 @@
 # This source code is licensed under the license found in the
 # LICENSE file in the root directory of this source tree.
 
-import copy
-import functools
-import os
 import time
+
+import cv2
 
 import neural_pbir_cuda_utils
 import numpy as np
 
 import torch
-import torch.nn as nn
-import torch.nn.functional as F
-import trimesh
 
 
 """
@@ -318,7 +314,7 @@ def offline_sampler_in_maskcache(
         1e9,
     )
     stepdist = model.voxel_size * 0.5
-    max_n_steps = ((t_max - t_now) / stepdist).long() + 1
+    max_n_steps = ((t_max - t_min) / stepdist).long() + 1
     rt_n_steps = model.mask_cache.ray_tracing(rays_o, viewdirs, stepdist, max_n_steps)
     mask = rt_n_steps < max_n_steps
     return mask

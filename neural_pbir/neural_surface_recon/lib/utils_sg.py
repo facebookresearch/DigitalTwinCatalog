@@ -11,7 +11,6 @@ Code adapt from:
 
 import os
 
-import cv2
 import imageio
 import numpy as np
 import torch
@@ -401,6 +400,6 @@ def render_with_sg(normal, wo, lgtSGs, ks, roughness, kd, vis_ratio=None):
 
         pdb.set_trace()
 
-    # combine diffue and specular rgb
+    # combine diffuse and specular rgb
     rgb = specular_rgb + diffuse_rgb
     return rgb

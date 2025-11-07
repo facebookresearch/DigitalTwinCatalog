@@ -5,16 +5,12 @@
 # LICENSE file in the root directory of this source tree.
 
 import json
-from copy import deepcopy
 from pathlib import Path
 
 import gin
 import numpy as np
 
-import torch
 from irtk.io import read_image, to_torch_f
-from irtk.renderer import Renderer
-from irtk.sampling import sample_sphere
 from irtk.scene import (
     EnvironmentLight,
     HDRFilm,

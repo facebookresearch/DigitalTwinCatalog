@@ -5,16 +5,10 @@
 # This source code is licensed under the license found in the
 # LICENSE file in the root directory of this source tree.
 
-import argparse, copy, glob, json, os, random, shutil, sys, time
+import argparse, os, sys
 from pathlib import Path
 
-import imageio
-
 import mmcv
-import numpy as np
-
-import torch
-from tqdm import tqdm, trange
 
 sys.path.append(str(Path(os.path.dirname(os.path.abspath(__file__))).parent))
 from neural_surface_recon.run import config_parser, run

@@ -10,14 +10,10 @@ Various explicit (grid) and hybrid (grid+MLP) implementation.
 To add your new one, you should implement
 - forward
 - get_dense_grid
-- scale_volme_grid (optional. just in case you want to progressively scale your grid)
+- scale_volume_grid (optional. just in case you want to progressively scale your grid)
 See DenseGrid for an concrete example.
 Finally, remember to add your new representation into the create_grid function.
 """
-
-import functools
-import os
-import time
 
 import neural_pbir_cuda_utils
 import numpy as np

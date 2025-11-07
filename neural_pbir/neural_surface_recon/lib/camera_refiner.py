@@ -9,8 +9,6 @@ The code is adapted from:
 BARF: Bundle-Adjusting Neural Radiance Fields
 """
 
-import numpy as np
-
 import torch
 import torch.nn as nn
 import torch.nn.functional as F

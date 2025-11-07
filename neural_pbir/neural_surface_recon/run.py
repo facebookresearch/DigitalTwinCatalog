@@ -5,7 +5,12 @@
 # This source code is licensed under the license found in the
 # LICENSE file in the root directory of this source tree.
 
-import argparse, copy, glob, json, os, random, shutil, sys, time
+import argparse
+import copy
+import os
+import random
+import sys
+import time
 from pathlib import Path
 
 import imageio
@@ -14,13 +19,12 @@ import mmcv
 import numpy as np
 
 import torch
-import torch.nn as nn
 import torch.nn.functional as F
 from tqdm import tqdm, trange
 
 sys.path.append(str(Path(os.path.dirname(os.path.abspath(__file__))).parent))
 import neural_pbir_cuda_utils
-from neural_surface_recon.lib import utils, utils_bbox, utils_ray, utils_sg, vol_repr
+from neural_surface_recon.lib import utils, utils_bbox, utils_ray, vol_repr
 from neural_surface_recon.lib.camera_refiner import CamRefiner
 from neural_surface_recon.lib.dataloader import load_data
 

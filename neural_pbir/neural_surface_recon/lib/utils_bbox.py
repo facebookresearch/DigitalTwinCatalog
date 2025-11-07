@@ -9,13 +9,11 @@ Compute scene bbox (xyz_min, xyz_max) to enclose the object of interest.
 TODO: find a oriented bbox that better fit a coarse geometry.
 """
 
-import os
 import time
 
 import numpy as np
 
 import torch
-import trimesh
 
 from . import utils, utils_ray
 
@@ -37,11 +35,11 @@ def compute_bbox(HW, Ks, poses, i_train, aabb, use_only_train=True, **kwargs):
         xyz_min = torch.Tensor(aabb[0])
         xyz_max = torch.Tensor(aabb[1])
     elif kwargs["fg_bbox_rule"] == "cam_centroid_cuboid":
-        xyz_min, xyz_max = compute_bbox_by_cam_frustrm_unbounded(
+        xyz_min, xyz_max = compute_bbox_by_cam_frustrum_unbounded(
             HW=HW, Ks=Ks, poses=poses, **kwargs
         )
     elif kwargs["fg_bbox_rule"] == "cam_frustrum":
-        xyz_min, xyz_max = compute_bbox_by_cam_frustrm_bounded(
+        xyz_min, xyz_max = compute_bbox_by_cam_frustrum_bounded(
             HW=HW, Ks=Ks, poses=poses, **kwargs
         )
     else:
@@ -53,7 +51,7 @@ def compute_bbox(HW, Ks, poses, i_train, aabb, use_only_train=True, **kwargs):
     return xyz_min, xyz_max
 
 
-def compute_bbox_by_cam_frustrm_bounded(HW, Ks, poses, near, far, ndc, **kwargs):
+def compute_bbox_by_cam_frustrum_bounded(HW, Ks, poses, near, far, ndc, **kwargs):
     xyz_min = torch.Tensor([np.inf, np.inf, np.inf])
     xyz_max = -xyz_min
     for (H, W), K, c2w in zip(HW, Ks, poses):
@@ -69,7 +67,7 @@ def compute_bbox_by_cam_frustrm_bounded(HW, Ks, poses, near, far, ndc, **kwargs)
     return xyz_min, xyz_max
 
 
-def compute_bbox_by_cam_frustrm_unbounded(HW, Ks, poses, near_clip, ndc, **kwargs):
+def compute_bbox_by_cam_frustrum_unbounded(HW, Ks, poses, near_clip, ndc, **kwargs):
     # Find a tightest cube that cover all camera centers
     xyz_min = torch.Tensor([np.inf, np.inf, np.inf])
     xyz_max = -xyz_min

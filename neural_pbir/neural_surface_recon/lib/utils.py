@@ -8,18 +8,12 @@
 Some utility functions.
 """
 
-import os
 import zipfile
-from typing import List, Optional
 
-import cv2
 import numpy as np
 import scipy.signal
 import torch
 import torch.nn as nn
-import torch.nn.functional as F
-
-from torch import Tensor
 
 from .masked_adam import MaskedAdam
 
@@ -281,7 +275,7 @@ def mesh_keep_largest_cc(mesh):
     mesh_cc = mesh.split(only_watertight=False)
     max_id = np.argmax([len(m.vertices) for m in mesh_cc])
     mesh = mesh_cc[max_id]
-    print(f"Removed {len(mesh_cc)-1} isoluated connected components.")
+    print(f"Removed {len(mesh_cc)-1} isolated connected components.")
     return mesh
 
 

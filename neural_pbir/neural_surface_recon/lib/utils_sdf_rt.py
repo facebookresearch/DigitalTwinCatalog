@@ -5,7 +5,6 @@
 # LICENSE file in the root directory of this source tree.
 
 import neural_pbir_cuda_utils
-import torch
 import torch.nn.functional as F
 
 

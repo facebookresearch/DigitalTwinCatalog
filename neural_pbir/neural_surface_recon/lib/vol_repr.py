@@ -8,18 +8,12 @@
 Implement the main scene representation and rendering.
 """
 
-import copy
-import functools
-import os
-import time
-
 import neural_pbir_cuda_utils
 import numpy as np
 
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-import trimesh
 
 from . import grid, utils_sdf_rt
 
@@ -47,7 +41,7 @@ class VolRepr(torch.nn.Module):
         detach_sharpness=True,  # disable sdf_scale weight the sdf value in backprop
         # init activated alpha in density mode
         alpha_init=None,
-        # init sdf grid to a contant + small random
+        # init sdf grid to a constant + small random
         constant_init=False,
         constant_init_val=0,
         # init sdf grid to a sphere
