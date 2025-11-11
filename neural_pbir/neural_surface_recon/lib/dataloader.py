@@ -34,10 +34,6 @@ def load_data(cfg_data):
     H = HW[0, 0]
     W = HW[0, 1]
 
-    if K is None:
-        focal = hwf[-1]
-        K = np.array([[focal, 0, 0.5 * W], [0, focal, 0.5 * H], [0, 0, 1]])
-
     if len(K.shape) == 2:
         Ks = K[None].repeat(len(poses), axis=0)
     else:
