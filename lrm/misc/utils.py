@@ -64,7 +64,7 @@ class RepeatedDataLoader(torch.utils.data.dataloader.DataLoader):
         return len(self.batch_sampler.sampler)
 
     def __iter__(self):
-        for i in range(len(self)):
+        for _ in range(len(self)):
             yield next(self.iterator)
 
 
@@ -108,7 +108,7 @@ def pytorch_mlp_clip_gradients(model, clip):
 
 def clip_gradients(model, clip, check_nan_inf=True, file_name=None):
     norms = []
-    for name, p in model.named_parameters():
+    for p in model.parameters():
         if p.grad is not None:
             if check_nan_inf:
                 p.grad.data = torch.nan_to_num(
@@ -714,7 +714,7 @@ def get_params_groups(args, **kwargs):
 
 def has_batchnorms(model):
     bn_types = (nn.BatchNorm1d, nn.BatchNorm2d, nn.BatchNorm3d, nn.SyncBatchNorm)
-    for name, module in model.named_modules():
+    for module in model.modules():
         if isinstance(module, bn_types):
             return True
     return False
