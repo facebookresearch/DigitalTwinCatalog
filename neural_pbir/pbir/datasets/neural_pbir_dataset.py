@@ -33,8 +33,10 @@ class NeuralPBIRDataset(Dataset):
         savemem=True,
         F0=0.04,
         integrator_type="path",
-        integrator_config={"max_depth": 3, "hide_emitters": False},
+        integrator_config=None,
     ):
+        if integrator_config is None:
+            integrator_config = {"max_depth": 3, "hide_emitters": False}
         self.data_root = Path(dataroot)
         self.ckpt_root = Path(ckptroot)
         self.result_root = self.ckpt_root / "pbir" if resultroot is None else resultroot
