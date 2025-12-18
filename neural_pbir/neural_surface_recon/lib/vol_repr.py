@@ -60,8 +60,8 @@ class VolRepr(torch.nn.Module):
         # grids setups (see grid.py for detail)
         density_type="DenseGrid",
         k0_type="DenseGrid",
-        density_config={},
-        k0_config={},
+        density_config=None,
+        k0_config=None,
         # mlp setups
         rgbnet_dim=0,
         rgbnet_depth=3,
@@ -77,6 +77,10 @@ class VolRepr(torch.nn.Module):
         **kwargs,
     ):
         super(VolRepr, self).__init__()
+        if density_config is None:
+            density_config = {}
+        if k0_config is None:
+            k0_config = {}
         self.register_buffer("xyz_min", torch.Tensor(xyz_min))
         self.register_buffer("xyz_max", torch.Tensor(xyz_max))
         self.i_am_fg = i_am_fg
