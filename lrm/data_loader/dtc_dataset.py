@@ -48,7 +48,7 @@ class DtcDataset(Dataset):
         input_image_num=4,
         output_image_res=128,
         output_image_num=4,
-        output_res_range=[128, 384],
+        output_res_range=None,
         env_height: int = 32,
         env_width: int = 64,
         load_noisy_image: bool = True,
@@ -61,8 +61,8 @@ class DtcDataset(Dataset):
         radius=0.5,
         cam_loc_scale=2,
         fov=20.377,
-        eva_input_views=[0],
-        eva_output_views=[4, 5, 6, 7],
+        eva_input_views=None,
+        eva_output_views=None,
         cropping_mode="importance",
         perturb_color=False,
         perturb_brdf=False,
@@ -74,6 +74,13 @@ class DtcDataset(Dataset):
         end_id=-1,
     ):
         super().__init__()
+
+        if output_res_range is None:
+            output_res_range = [128, 384]
+        if eva_input_views is None:
+            eva_input_views = [0]
+        if eva_output_views is None:
+            eva_output_views = [4, 5, 6, 7]
 
         if model_list is None:
             model_list = "train.txt" if mode.upper() == "TRAIN" else "test.txt"
