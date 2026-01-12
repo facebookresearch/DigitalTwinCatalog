@@ -217,7 +217,7 @@ class triplane_loss_acc:
             preds[key] = torch.cat(preds[key], dim=0)
             preds[key] = preds[key].reshape(batch_size, im_num, height, width, -1)
 
-        for name, p in triplane.named_parameters():
+        for _, p in triplane.named_parameters():
             if p.grad is not None:
                 p.grad.data.mul_(1.0 / batch_size / im_num)
 
