@@ -9,7 +9,6 @@ from pathlib import Path
 
 import gin
 import numpy as np
-
 from irtk.io import read_image, to_torch_f
 from irtk.scene import (
     EnvironmentLight,

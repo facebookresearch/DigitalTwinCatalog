@@ -12,7 +12,6 @@ TODO: find a oriented bbox that better fit a coarse geometry.
 import time
 
 import numpy as np
-
 import torch
 
 from . import utils, utils_ray

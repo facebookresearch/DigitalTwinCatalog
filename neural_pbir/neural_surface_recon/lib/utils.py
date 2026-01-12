@@ -275,12 +275,13 @@ def mesh_keep_largest_cc(mesh):
     mesh_cc = mesh.split(only_watertight=False)
     max_id = np.argmax([len(m.vertices) for m in mesh_cc])
     mesh = mesh_cc[max_id]
-    print(f"Removed {len(mesh_cc)-1} isolated connected components.")
+    print(f"Removed {len(mesh_cc) - 1} isolated connected components.")
     return mesh
 
 
 def extract_mesh(sdf_grid, isovalue=0, xyz_min=None, xyz_max=None, cleanup=True):
-    import mcubes, trimesh
+    import mcubes
+    import trimesh
 
     vertices, triangles = mcubes.marching_cubes(-sdf_grid, -isovalue)
     if xyz_min is None:

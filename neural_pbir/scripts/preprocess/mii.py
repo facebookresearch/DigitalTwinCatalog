@@ -4,7 +4,15 @@
 # This source code is licensed under the license found in the
 # LICENSE file in the root directory of this source tree.
 
-import argparse, copy, glob, json, os, random, shutil, sys, time
+import argparse
+import copy
+import glob
+import json
+import os
+import random
+import shutil
+import sys
+import time
 from pathlib import Path
 
 import imageio
@@ -38,15 +46,15 @@ if __name__ == "__main__":
         for frame in meta["frames"]:
             if (
                 splitname == "train"
-                or not (args.datadir / f'{frame["file_path"]}_rgba.png').exists()
+                or not (args.datadir / f"{frame['file_path']}_rgba.png").exists()
             ):
                 new_frame = {
-                    "path": f'{frame["file_path"]}_rgb.exr',
-                    "mask": f'{frame["file_path"]}_mask.png',
+                    "path": f"{frame['file_path']}_rgb.exr",
+                    "mask": f"{frame['file_path']}_mask.png",
                 }
             else:
                 new_frame = {
-                    "path": f'{frame["file_path"]}_rgba.png',
+                    "path": f"{frame['file_path']}_rgba.png",
                     "mask_from_alpha": True,
                 }
             c2w = np.array(frame["transform_matrix"]).astype(np.float32)

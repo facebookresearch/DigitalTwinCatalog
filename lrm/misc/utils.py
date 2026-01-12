@@ -11,7 +11,6 @@ import os
 
 os.environ["OPENCV_IO_ENABLE_OPENEXR"] = "1"
 import random
-
 import shutil
 import sys
 import tempfile
@@ -19,7 +18,6 @@ import time
 from collections import defaultdict, deque, OrderedDict
 
 import cv2
-
 import matplotlib.cm as cm
 import numpy as np
 import torch
@@ -282,9 +280,9 @@ def cosine_scheduler(
     )
 
     schedule = np.concatenate((warmup_schedule, schedule))
-    assert (
-        len(schedule) == epochs * niter_per_ep
-    ), f"Schedule length {len(schedule)} needs to match epoch {epochs} x iteration per epoch {niter_per_ep}"
+    assert len(schedule) == epochs * niter_per_ep, (
+        f"Schedule length {len(schedule)} needs to match epoch {epochs} x iteration per epoch {niter_per_ep}"
+    )
     return schedule
 
 
@@ -312,9 +310,9 @@ def linear_scheduler(
     schedule = np.linspace(base_value, final_value, len(iters))
 
     schedule = np.concatenate((warmup_schedule, schedule))
-    assert (
-        len(schedule) == epochs * niter_per_ep
-    ), f"Schedule length {len(schedule)} needs to match epoch {epochs} x iteration per epoch {niter_per_ep}"
+    assert len(schedule) == epochs * niter_per_ep, (
+        f"Schedule length {len(schedule)} needs to match epoch {epochs} x iteration per epoch {niter_per_ep}"
+    )
     return schedule
 
 

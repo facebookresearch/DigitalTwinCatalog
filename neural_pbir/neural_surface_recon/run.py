@@ -14,10 +14,8 @@ import time
 from pathlib import Path
 
 import imageio
-
 import mmcv
 import numpy as np
-
 import torch
 import torch.nn.functional as F
 from tqdm import tqdm, trange
@@ -570,9 +568,7 @@ def scene_rep_reconstruction(
         # check log & save
         eps_time = time.time() - time0
         if trainiter % args.i_print == 0:
-            eps_time_str = (
-                f"{eps_time//3600:02.0f}:{eps_time//60%60:02.0f}:{eps_time%60:02.0f}"
-            )
+            eps_time_str = f"{eps_time // 3600:02.0f}:{eps_time // 60 % 60:02.0f}:{eps_time % 60:02.0f}"
             tqdm.write(
                 f"scene_rep_reconstruction ({stage}): iter {trainiter:6d} / "
                 f"Loss: {loss.item():.9f} / PSNR: {np.mean(psnr_lst):5.2f} / "
@@ -649,9 +645,7 @@ def train(args, cfg, data_dict):
             stage="coarse",
         )
         eps_coarse = time.time() - eps_coarse
-        eps_time_str = (
-            f"{eps_coarse//3600:02.0f}:{eps_coarse//60%60:02.0f}:{eps_coarse%60:02.0f}"
-        )
+        eps_time_str = f"{eps_coarse // 3600:02.0f}:{eps_coarse // 60 % 60:02.0f}:{eps_coarse % 60:02.0f}"
         print("train: coarse geometry searching in", eps_time_str)
         coarse_ckpt_path = cfg.results_dir / "coarse_last.pth"
     else:
@@ -690,11 +684,15 @@ def train(args, cfg, data_dict):
         coarse_ckpt_path=coarse_ckpt_path if cfg.fine_train.use_coarse_mask else None,
     )
     eps_fine = time.time() - eps_fine
-    eps_time_str = f"{eps_fine//3600:02.0f}:{eps_fine//60%60:02.0f}:{eps_fine%60:02.0f}"
+    eps_time_str = (
+        f"{eps_fine // 3600:02.0f}:{eps_fine // 60 % 60:02.0f}:{eps_fine % 60:02.0f}"
+    )
     print("train: fine detail reconstruction in", eps_time_str)
 
     eps_time = time.time() - eps_time
-    eps_time_str = f"{eps_time//3600:02.0f}:{eps_time//60%60:02.0f}:{eps_time%60:02.0f}"
+    eps_time_str = (
+        f"{eps_time // 3600:02.0f}:{eps_time // 60 % 60:02.0f}:{eps_time % 60:02.0f}"
+    )
     print("train: finish (eps time", eps_time_str, ")")
 
 

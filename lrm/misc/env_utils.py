@@ -9,7 +9,6 @@ import random
 import re
 
 import numpy as np
-
 import torch
 import torch.backends.cudnn as cudnn
 import torch.distributed as dist
@@ -121,10 +120,10 @@ class _TorchDistributedEnvironment:
         if not overwrite:
             for k, v in env_vars.items():
                 assert k in os.environ, "{} is missing in environ"
-                assert (
-                    v == os.environ[k]
-                ), "Environment variables inconsistent {} != {}".format(
-                    os.environ[k], v
+                assert v == os.environ[k], (
+                    "Environment variables inconsistent {} != {}".format(
+                        os.environ[k], v
+                    )
                 )
 
         os.environ.update(env_vars)

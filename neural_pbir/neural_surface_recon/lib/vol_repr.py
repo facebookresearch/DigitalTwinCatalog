@@ -10,7 +10,6 @@ Implement the main scene representation and rendering.
 
 import neural_pbir_cuda_utils
 import numpy as np
-
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -714,9 +713,9 @@ class VolRepr(torch.nn.Module):
         @rays_d:   [N, 3] the shooting direction of the N rays.
         @viewdirs: [N, 3] viewing direction to compute positional embedding for MLP.
         """
-        assert (
-            len(rays_o.shape) == 2 and rays_o.shape[-1] == 3
-        ), "Only suuport point queries in [N, 3] format"
+        assert len(rays_o.shape) == 2 and rays_o.shape[-1] == 3, (
+            "Only suuport point queries in [N, 3] format"
+        )
 
         ret_dict = {}
         N = len(rays_o)
@@ -834,9 +833,9 @@ class VolRepr(torch.nn.Module):
 
     def fast_forward(self, rays_o, rays_d, viewdirs, stepsize, near, **render_kwargs):
         """Volume rendering for test-time"""
-        assert (
-            len(rays_o.shape) == 2 and rays_o.shape[-1] == 3
-        ), "Only suuport point queries in [N, 3] format"
+        assert len(rays_o.shape) == 2 and rays_o.shape[-1] == 3, (
+            "Only suuport point queries in [N, 3] format"
+        )
         MAX_N_Q = 800 * 800 * 4
 
         N = len(rays_o)
@@ -1001,9 +1000,9 @@ class VolRepr(torch.nn.Module):
         self, rays_o, rays_d, viewdirs, stepsize, near, **render_kwargs
     ):
         """Volume rendering for test-time"""
-        assert (
-            len(rays_o.shape) == 2 and rays_o.shape[-1] == 3
-        ), "Only suuport point queries in [N, 3] format"
+        assert len(rays_o.shape) == 2 and rays_o.shape[-1] == 3, (
+            "Only suuport point queries in [N, 3] format"
+        )
         assert self.density.type == "DenseGrid"
         assert self.sdf_mode
 

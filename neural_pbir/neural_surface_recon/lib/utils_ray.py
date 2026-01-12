@@ -7,10 +7,8 @@
 import time
 
 import cv2
-
 import neural_pbir_cuda_utils
 import numpy as np
-
 import torch
 
 

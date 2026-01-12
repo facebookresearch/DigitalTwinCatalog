@@ -15,7 +15,6 @@ import tarfile
 
 import cv2
 import Imath
-
 import numpy as np
 import OpenEXR
 import scipy.ndimage as ndimage

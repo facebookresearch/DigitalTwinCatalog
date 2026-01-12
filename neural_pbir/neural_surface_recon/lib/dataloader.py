@@ -11,7 +11,6 @@ from multiprocessing import Pool
 
 import imageio
 import numpy as np
-
 import scipy
 from scipy.spatial.transform import Rotation, Slerp
 from tqdm import tqdm
@@ -51,7 +50,7 @@ def load_data(cfg_data):
         )
         i_train = i_train[cam_mask]
         print(
-            f"Removed {len(cam_mask)-cam_mask.sum()} out of {len(cam_mask)} trainint views."
+            f"Removed {len(cam_mask) - cam_mask.sum()} out of {len(cam_mask)} trainint views."
         )
 
     # Bundle all datas
@@ -179,7 +178,7 @@ def load_dataset(cfg_data):
         i_val, i_test = np.empty([2, 0], dtype=int)
     split = [i_train, i_test, i_val]
 
-    print(f"Finish loading dataset in {time.time()-ts:.1f} sec.")
+    print(f"Finish loading dataset in {time.time() - ts:.1f} sec.")
     return images, masks, poses, render_poses, K, all_paths, aabb, split
 
 

@@ -4,7 +4,15 @@
 # This source code is licensed under the license found in the
 # LICENSE file in the root directory of this source tree.
 
-import argparse, copy, glob, json, os, random, shutil, sys, time
+import argparse
+import copy
+import glob
+import json
+import os
+import random
+import shutil
+import sys
+import time
 from pathlib import Path
 
 import cv2
@@ -156,7 +164,7 @@ if __name__ == "__main__":
         }
 
         # save result
-        outpath = novel_dir / f'{frame["scene_name"]}_{fname}.json'
+        outpath = novel_dir / f"{frame['scene_name']}_{fname}.json"
         with open(outpath, "w") as f:
             json.dump(new_meta, f, indent=4)
         print("Result is saved to", outpath)

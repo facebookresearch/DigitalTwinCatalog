@@ -17,7 +17,6 @@ Finally, remember to add your new representation into the create_grid function.
 
 import neural_pbir_cuda_utils
 import numpy as np
-
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -360,7 +359,7 @@ class TensoRFGrid(nn.Module):
         return grid
 
     def extra_repr(self):
-        return f'channels={self.channels}, world_size={self.world_size.tolist()}, n_comp={self.config["n_comp"]}'
+        return f"channels={self.channels}, world_size={self.world_size.tolist()}, n_comp={self.config['n_comp']}"
 
 
 def compute_tensorf_feat(
