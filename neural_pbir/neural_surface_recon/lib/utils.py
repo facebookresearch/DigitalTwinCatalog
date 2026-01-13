@@ -309,9 +309,6 @@ def DTU_clean_mesh_by_mask(mesh, datadir):
     import glob
 
     import cv2
-    import pytorch3d
-    import pytorch3d.renderer
-    import pytorch3d.structures
     import trimesh
     from tqdm import trange
 

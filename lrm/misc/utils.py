@@ -13,7 +13,6 @@ os.environ["OPENCV_IO_ENABLE_OPENEXR"] = "1"
 import random
 import shutil
 import sys
-import tempfile
 import time
 from collections import defaultdict, deque, OrderedDict
 

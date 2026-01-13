@@ -4,23 +4,13 @@
 # This source code is licensed under the license found in the
 # LICENSE file in the root directory of this source tree.
 
-import argparse
-import copy
-import glob
-import json
 import os
-import random
-import shutil
 import sys
-import time
 from pathlib import Path
 
 import mmcv
-import numpy as np
-import tinycudann as tcnn
 import torch
-import torch.nn as nn
-from tqdm import tqdm, trange
+from tqdm import tqdm
 
 sys.path.append(str(Path(os.path.dirname(os.path.abspath(__file__))).parent))
 from neural_surface_recon.lib import utils_ray, utils_sdf_rt, utils_sg, vol_repr

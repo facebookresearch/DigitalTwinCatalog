@@ -6,14 +6,10 @@
 # LICENSE file in the root directory of this source tree.
 
 import argparse
-import copy
-import glob
-import json
 import os
 import random
 import shutil
 import sys
-import time
 from pathlib import Path
 
 from tqdm import tqdm, trange
@@ -22,7 +18,6 @@ os.environ["OPENCV_IO_ENABLE_OPENEXR"] = "1"
 import cv2
 import imageio
 import imageio.v3 as iio
-import mmcv
 import numpy as np
 import pytorch3d
 import pytorch3d.renderer
@@ -38,7 +33,7 @@ from distill_util import (
     lin2srgb,
     print_cyan,
 )
-from neural_surface_recon.lib import utils_ray, utils_sg, vol_repr
+from neural_surface_recon.lib import utils_sg, vol_repr
 
 
 def write_exr(path, exr):
