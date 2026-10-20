@@ -641,7 +641,7 @@ def save_mesh(path, values, N, threshold, radius, save_volume=False):
             vertices=vertices, faces=triangles, vertex_normals=normals
         )
         mesh.export(path)
-    except:
+    except Exception:
         print("Failed to extract mesh.")
 
 
